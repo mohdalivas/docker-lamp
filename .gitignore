@@ -2,3 +2,6 @@
 !/**/data/mysql/.gitkeep
 /**/data/apache/logs/*
 !/**/data/apache/logs/.gitkeep
+/moodle
+/moodledata
+/app-org

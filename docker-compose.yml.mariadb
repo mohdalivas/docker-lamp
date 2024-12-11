@@ -25,9 +25,10 @@ services:
       - ./mysqld:/var/run/mysqld
 
   mysql:
-    image: mysql:8.0
+    image: mariadb:10.11.7
+    command: "mysqld --character-set-server=utf8 --collation-server=utf8_general_ci"
     restart: unless-stopped
-    container_name: lamp.mysql
+    container_name: lamp.mariadb
     tty: true
     ports:
       - "3306:3306"
@@ -36,11 +37,11 @@ services:
     volumes:
       - "./build/mysql/mysql.cnf:/etc/mysql/conf.d/custom.cnf:ro"
       - "./data/mysql/dbdata:/var/lib/mysql"
-      - ./mysqld:/var/run/mysqld
+      - ./mysqld:/run/mysqld
     environment:
-      MYSQL_DATABASE: "moodledb"
+      MYSQL_DATABASE: "moodle"
       MYSQL_USER: "moodleuser"
-      MYSQL_PASSWORD: "moodlepass"
+      MYSQL_PASSWORD: "R5EKZgiFbxv0ScS"
       MYSQL_ROOT_PASSWORD: "soTSteThoi18eCraq"
       # MYSQL_RANDOM_ROOT_PASSWORD: '1'
 
